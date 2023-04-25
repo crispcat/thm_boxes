@@ -1,0 +1,3 @@
+[submodule "03_kenobi/proftpd"]
+	path = 03_kenobi/proftpd
+	url = https://github.com/proftpd/proftpd.git

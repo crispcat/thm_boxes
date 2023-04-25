@@ -1,0 +1,86 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-04-20 11:28 EEST
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 11:28
+Completed NSE at 11:28, 0.00s elapsed
+Initiating NSE at 11:28
+Completed NSE at 11:28, 0.00s elapsed
+Initiating NSE at 11:28
+Completed NSE at 11:28, 0.00s elapsed
+Initiating Parallel DNS resolution of 1 host. at 11:28
+Completed Parallel DNS resolution of 1 host. at 11:28, 0.09s elapsed
+Initiating Connect Scan at 11:28
+Scanning 10.10.73.207 [10000 ports]
+Discovered open port 22/tcp on 10.10.73.207
+Discovered open port 110/tcp on 10.10.73.207
+Discovered open port 80/tcp on 10.10.73.207
+Discovered open port 139/tcp on 10.10.73.207
+Discovered open port 143/tcp on 10.10.73.207
+Discovered open port 445/tcp on 10.10.73.207
+Completed Connect Scan at 11:29, 37.59s elapsed (10000 total ports)
+Initiating Service scan at 11:29
+Scanning 6 services on 10.10.73.207
+Completed Service scan at 11:29, 11.26s elapsed (6 services on 1 host)
+NSE: Script scanning 10.10.73.207.
+Initiating NSE at 11:29
+Completed NSE at 11:29, 2.68s elapsed
+Initiating NSE at 11:29
+Completed NSE at 11:29, 0.52s elapsed
+Initiating NSE at 11:29
+Completed NSE at 11:29, 0.00s elapsed
+Nmap scan report for 10.10.73.207
+Host is up (0.082s latency).
+Not shown: 9994 closed ports
+PORT    STATE SERVICE     VERSION
+22/tcp  open  ssh         OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 99:23:31:bb:b1:e9:43:b7:56:94:4c:b9:e8:21:46:c5 (RSA)
+|   256 57:c0:75:02:71:2d:19:31:83:db:e4:fe:67:96:68:cf (ECDSA)
+|_  256 46:fa:4e:fc:10:a5:4f:57:57:d0:6d:54:f6:c3:4d:fe (ED25519)
+80/tcp  open  http        Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Skynet
+110/tcp open  pop3        Dovecot pop3d
+|_pop3-capabilities: TOP PIPELINING UIDL AUTH-RESP-CODE RESP-CODES CAPA SASL
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+143/tcp open  imap        Dovecot imapd
+|_imap-capabilities: capabilities ID have ENABLE post-login IMAP4rev1 Pre-login LOGINDISABLEDA0001 LITERAL+ LOGIN-REFERRALS SASL-IR listed more OK IDLE
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+Service Info: Host: SKYNET; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_ms-sql-info: ERROR: Script execution failed (use -d to debug)
+| nbstat: NetBIOS name: SKYNET, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| Names:
+|   SKYNET<00>           Flags: <unique><active>
+|   SKYNET<03>           Flags: <unique><active>
+|   SKYNET<20>           Flags: <unique><active>
+|   \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   WORKGROUP<1d>        Flags: <unique><active>
+|_  WORKGROUP<1e>        Flags: <group><active>
+|_smb-os-discovery: ERROR: Script execution failed (use -d to debug)
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2023-04-20T08:29:13
+|_  start_date: N/A
+
+NSE: Script Post-scanning.
+Initiating NSE at 11:29
+Completed NSE at 11:29, 0.00s elapsed
+Initiating NSE at 11:29
+Completed NSE at 11:29, 0.00s elapsed
+Initiating NSE at 11:29
+Completed NSE at 11:29, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 52.48 seconds

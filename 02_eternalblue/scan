@@ -1,0 +1,69 @@
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-04-14 15:06 EEST
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Initiating Parallel DNS resolution of 1 host. at 15:06
+Completed Parallel DNS resolution of 1 host. at 15:06, 0.50s elapsed
+Initiating Connect Scan at 15:06
+Scanning 10.10.168.150 [1000 ports]
+Discovered open port 445/tcp on 10.10.168.150
+Discovered open port 135/tcp on 10.10.168.150
+Discovered open port 139/tcp on 10.10.168.150
+Completed Connect Scan at 15:06, 2.21s elapsed (1000 total ports)
+Initiating Service scan at 15:06
+Scanning 3 services on 10.10.168.150
+Completed Service scan at 15:06, 6.20s elapsed (3 services on 1 host)
+NSE: Script scanning 10.10.168.150.
+Initiating NSE at 15:06
+Completed NSE at 15:06, 5.45s elapsed
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.01s elapsed
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Nmap scan report for 10.10.168.150
+Host is up (0.047s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE      VERSION
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)
+Service Info: Host: JON-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_ms-sql-info: ERROR: Script execution failed (use -d to debug)
+| nbstat: NetBIOS name: JON-PC, NetBIOS user: <unknown>, NetBIOS MAC: 02:b8:d1:95:f8:bf (unknown)
+| Names:
+|   JON-PC<00>           Flags: <unique><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   JON-PC<20>           Flags: <unique><active>
+|   WORKGROUP<1e>        Flags: <group><active>
+|   WORKGROUP<1d>        Flags: <unique><active>
+|_  \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+|_smb-os-discovery: ERROR: Script execution failed (use -d to debug)
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2023-04-14T12:06:32
+|_  start_date: 2023-04-14T11:50:57
+
+NSE: Script Post-scanning.
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Initiating NSE at 15:06
+Completed NSE at 15:06, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 14.74 seconds
